@@ -49,4 +49,10 @@ RSpec.describe Auto, type: :model do
       p subject
     end
   end
+  describe "Teste double" do
+    it "double" do
+      p double("book")
+      p instance_double("Assunto", :name2 => 'fdjaklsjfla')
+    end
+  end
 end

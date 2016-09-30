@@ -11,12 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928040020) do
+ActiveRecord::Schema.define(version: 20160930020621) do
+
+  create_table "assuntos", force: :cascade do |t|
+    t.string   "nome",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "autos", force: :cascade do |t|
-    t.string   "classe"
-    t.string   "assunto"
     t.text     "observacao"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "classe_id"
+    t.integer  "assunto_id"
+  end
+
+  create_table "classes", force: :cascade do |t|
+    t.string   "nome",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
