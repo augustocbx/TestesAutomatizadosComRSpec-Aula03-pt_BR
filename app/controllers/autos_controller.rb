@@ -24,7 +24,7 @@ class AutosController < ApplicationController
   # POST /autos
   # POST /autos.json
   def create
-    @auto = Auto.new(auto_params)
+    @auto = Auto.new(auto_params[:auto])
 
     respond_to do |format|
       if @auto.save
@@ -69,6 +69,6 @@ class AutosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def auto_params
-      params.fetch(:auto, {})
+      params.permit(auto: [:observacao, :classe_id, :assunto_id])
     end
 end

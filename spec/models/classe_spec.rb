@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: classes
+#
+#  id         :integer          not null, primary key
+#  nome       :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Classe, type: :model do

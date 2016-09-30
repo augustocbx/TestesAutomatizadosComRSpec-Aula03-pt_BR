@@ -1,5 +1,21 @@
+# == Schema Information
+#
+# Table name: autos
+#
+#  id         :integer          not null, primary key
+#  observacao :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  classe_id  :integer
+#  assunto_id :integer
+#
+
 class Auto < ActiveRecord::Base
-  validates_presence_of :classe, :assunto, :observacao
+  validates_presence_of :observacao
+
+  belongs_to :classe
+  belongs_to :assunto
+
 
   before_save :validate_fields
 

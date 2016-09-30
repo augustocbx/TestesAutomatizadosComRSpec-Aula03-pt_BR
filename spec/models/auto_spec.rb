@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: autos
+#
+#  id         :integer          not null, primary key
+#  observacao :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  classe_id  :integer
+#  assunto_id :integer
+#
+
 require 'rails_helper'
 require 'shareds/auto_shared'
 
