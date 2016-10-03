@@ -1,22 +1,22 @@
 require 'rails_helper'
 
-RSpec.describe AutosController, type: :controller do
+RSpec.describe ClassesController, type: :controller do
   describe "GET #index" do
     it 'quero ver todos os assuntos cadastrados' do
-      autos_criados = create_list(:auto, 5)
+      assuntos_criados = create_list(:auto, 5)
       get :index
       expect(assigns(:autos).size).to eq(5)
-      expect(assigns(:autos)).to eq(autos_criados)
+      expect(assigns(:autos)).to eq(assuntos_criados)
     end
   end
 
   describe "GET #show" do
     it 'quero ver um assunto que já existe' do
-      auto_criado = create(:auto)
-      get :show, id: auto_criado.id
+      assunto_criado = create(:assunto)
+      get :show, id: assunto_criado.id
 
       expect(response).to have_http_status(:ok)
-      expect(assigns(:auto)).to eq(auto_criado)
+      expect(assigns(:assunto)).to eq(assunto_criado)
       expect(response).to render_template(:show)
     end
     it "Quero ver o status 'Não encontrado' quando pedir um assunto inexistente" do
@@ -27,12 +27,11 @@ RSpec.describe AutosController, type: :controller do
 
   describe "POST #create" do
     it 'quero criar um assunto passando apenas o nome' do
-      auto_hash = attributes_for(:auto)
-      post :create, auto_hash
-      expect(assigns(:message)).to match(/auto criado com sucesso/i)
+      assunto_hash = attributes_for(:assunto)
+      post :create, assunto_hash
       expect(response).to have_http_status(:created)
-      expect(assigns(:auto).nome).to eq(assunto_hash[:nome])
-
+      expect(assigns(:assunto).nome).to eq(assunto_hash[:nome])
+      expect(assigns(:message)).to match(/assunto criado com sucesso/i)
       expect(response).to render_template(:show)
 
     end
