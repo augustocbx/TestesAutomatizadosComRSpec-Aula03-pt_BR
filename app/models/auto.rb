@@ -16,8 +16,9 @@ class Auto < ActiveRecord::Base
   belongs_to :classe
   belongs_to :assunto
 
+  validates_presence_of :classe, :assunto
 
-  before_save :validate_fields
+  before_update :validate_fields
 
   def validate_fields
     if self.classe == 'Nova'
