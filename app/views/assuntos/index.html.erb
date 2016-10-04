@@ -1,0 +1,18 @@
+<% if @assuntos.empty? %>
+    Não existem assuntos cadastrados
+<% else %>
+    <table>
+      <tr>
+        <td>
+          Nome
+        </td>
+      </tr>
+      <% @assuntos.each do |assunto| %>
+          <tr>
+            <td>
+              <%= h assunto.nome %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+<% end %>
