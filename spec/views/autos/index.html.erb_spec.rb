@@ -10,12 +10,15 @@ describe 'autos/index', type: :view do
   end
 
   it 'Existem autos cadastrados' do
-    autos = create_list(:auto, 2)
+    autos = create_list(:auto, 5)
     assign(:autos, autos)
 
     render
 
-    expect(rendered).to match(autos.first.observacao)
-    expect(rendered).to match(autos.last.observacao)
+    autos.each do |auto|
+      expect(rendered).to match(auto.classe.nome)
+      expect(rendered).to match(auto.assunto.nome)
+      expect(rendered).to match(auto.observacao)
+    end
   end
 end

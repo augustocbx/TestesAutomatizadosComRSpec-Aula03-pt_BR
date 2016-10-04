@@ -57,3 +57,4 @@ end
 
 gem 'devise'
 gem 'capybara'
+gem 'selenium-webdriver'

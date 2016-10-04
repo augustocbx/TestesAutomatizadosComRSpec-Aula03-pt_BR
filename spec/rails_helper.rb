@@ -6,6 +6,8 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'support/factory_girl'
+require 'capybara/rspec'
+require 'capybara/selenium/driver'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -25,6 +27,26 @@ require 'support/factory_girl'
 
 # Checks for pending migration and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
+
+# Capybara.register_driver :selenium do |app|
+#   Capybara::Selenium::Driver.new(app, :browser => :firefox)
+# end
+url = 'http://selenium.hub.docker'
+capabilities = Selenium::WebDriver::Remote::Capabilities.firefox
+Capybara.app_host = 'http://localhost:3000'
+Capybara.run_server = false
+Capybara.register_driver :remote_browser do |app|
+  Capybara::Selenium::Driver.new(
+      app,
+      :browser => :remote,
+      url: url,
+      desired_capabilities: capabilities
+  )
+end
+
+Capybara.default_driver = :remote_browser
+Capybara.javascript_driver = :remote_browser
+
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|

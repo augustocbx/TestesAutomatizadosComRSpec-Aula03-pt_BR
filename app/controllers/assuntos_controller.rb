@@ -1,7 +1,12 @@
 class AssuntosController < ApplicationController
+  def new
+    @assunto = Assunto.new
+  end
+
+
   def index
     @assuntos = Assunto.all
-    render :show
+    render :index
   end
 
   def show
