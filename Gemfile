@@ -56,3 +56,4 @@ group :test do
 end
 
 gem 'devise'
+gem 'capybara'
