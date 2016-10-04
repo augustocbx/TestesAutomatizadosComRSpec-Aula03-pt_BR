@@ -1,4 +1,5 @@
-<p id="notice"><%= notice %></p>
+<%= link_to 'Editar', edit_auto_path(@auto) %>
 
-<%= link_to 'Edit', edit_auto_path(@auto) %> |
-<%= link_to 'Back', autos_path %>
+<%= @auto.assunto.nome %> <br>
+<%= @auto.classe.nome %> <br>
+Observação: <%= @auto.observacao %>

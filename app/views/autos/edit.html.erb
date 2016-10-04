@@ -1,6 +1,6 @@
-<h1>Editing Auto</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @auto %> |
-<%= link_to 'Back', autos_path %>
+<%= form_for @auto do |f| %>
+    <%= f.collection_select :assunto_id, @assuntos, :id, :nome, prompt: true %> <br>
+    <%= f.collection_select :classe_id, @classes, :id, :nome, prompt: true %> <br>
+    <%= f.text_area :observacao %> <br>
+    <%= f.submit 'Alterar' %> <br>
+<% end %>
