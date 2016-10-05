@@ -3,8 +3,15 @@ class AssuntosController < ApplicationController
     @assunto = Assunto.new
   end
 
+  def edit
+    @assunto = Assunto.find_by(id: params[:id])
+  end
+
 
   def index
+    if params[:message].present?
+      @message = params[:message]
+    end
     @assuntos = Assunto.all
     render :index
   end
@@ -48,11 +55,11 @@ class AssuntosController < ApplicationController
     if @assunto.present?
       if @assunto.destroy
         @message = "Assunto removido com sucesso!"
-        redirect_to action: :index
+        redirect_to action: :index, message: @message
       else
         @message = "O assunto não pode ser removido. "
         @message << @assunto.errors.full_messages.to_s
-        redirect_to action: :index
+        redirect_to action: :index, message: @message
       end
 
     else

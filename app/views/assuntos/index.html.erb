@@ -1,5 +1,5 @@
 <%= link_to 'Novo assunto', new_assunto_path %><br>
-
+<font color="green"><%= @message %></font><br>
 <% if @assuntos.empty? %>
     Não existem assuntos cadastrados
 <% else %>
@@ -8,11 +8,23 @@
         <td>
           Nome
         </td>
+        <td>
+          Editar
+        </td>
+        <td>
+          Remover
+        </td>
       </tr>
       <% @assuntos.each do |assunto| %>
-          <tr>
+          <tr class="assunto_linha">
             <td>
               <%= h assunto.nome %>
+            </td>
+            <td>
+              <%= link_to('Editar Assunto', edit_assunto_path(assunto)) %>
+            </td>
+            <td>
+              <%= link_to('Remover Assunto', assunto_path(assunto), method: :delete) %>
             </td>
           </tr>
       <% end %>
