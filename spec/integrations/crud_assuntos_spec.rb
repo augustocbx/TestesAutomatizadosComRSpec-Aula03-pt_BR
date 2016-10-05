@@ -4,11 +4,11 @@ feature 'Crud Assuntos' do
   scenario 'Criação de assunto' do
     visit assuntos_path
     click_on 'Novo assunto'
-    sleep 5
     fill_in 'assunto[nome]', with: 'lalalá'
     click_on 'Cadastrar'
     expect(page).to have_content('Assunto criado com sucesso.')
     expect(page).to have_content('lalalá')
+    page.save_screenshot('/Users/augustocbx/Projects/TDD_03/tmp/assuntos.png')
   end
   # scenario 'Alteração de assunto' do
   #   create_list(:assunto, 5)

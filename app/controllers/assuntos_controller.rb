@@ -20,7 +20,7 @@ class AssuntosController < ApplicationController
 
   def create
     @assunto = Assunto.new(assunto_params)
-    if @assunto.save
+    if @assunto.save!
       @message = "Assunto criado com sucesso."
       render :show, status: :created
     else
@@ -63,7 +63,7 @@ class AssuntosController < ApplicationController
 
   private
   def assunto_params
-    params.permit(:nome)
+    params.permit(assunto: :nome)[:assunto]
   end
 
 end

@@ -53,8 +53,12 @@ end
 group :test do
   gem 'factory_girl_rails'
   gem 'faker'
+
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem "chromedriver-helper", "1.0.0"
+
+  gem 'database_cleaner'
 end
 
 gem 'devise'
-gem 'capybara'
-gem 'selenium-webdriver'

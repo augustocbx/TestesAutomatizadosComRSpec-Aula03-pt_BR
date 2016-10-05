@@ -1,5 +1,6 @@
-<%=@message%>
+<%=link_to 'Editar', edit_assunto_path(@assunto)%><br>
+<font color="green"><%=@message%></font><br>
+<br>
 
-<%=link_to 'Editar', edit_assunto_path(@assunto)%>
 
-<%=@assunto.nome%>
+Assunto: <%=@assunto.nome%>
