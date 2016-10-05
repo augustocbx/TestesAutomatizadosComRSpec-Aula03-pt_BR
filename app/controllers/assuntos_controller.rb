@@ -27,7 +27,7 @@ class AssuntosController < ApplicationController
 
   def create
     @assunto = Assunto.new(assunto_params)
-    if @assunto.save!
+    if @assunto.save
       @message = "Assunto criado com sucesso."
       render :show, status: :created
     else

@@ -57,6 +57,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem "chromedriver-helper", "1.0.0"
+  gem 'cucumber-rails', :require => false
 
   gem 'database_cleaner'
 end
