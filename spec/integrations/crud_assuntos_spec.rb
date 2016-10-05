@@ -22,7 +22,6 @@ feature 'Crud Assuntos' do
     create_list(:assunto, 5)
     visit assuntos_path
     expect(all('tr.assunto_linha').size).to eq(5)
-    # page.save_screenshot('/Users/augustocbx/Projects/TDD_03/tmp/assuntos.png')
     click_on 'Remover Assunto', match: :first
     expect(page).to have_content('Assunto removido com sucesso')
     expect(all('tr.assunto_linha').size).to eq(4)
