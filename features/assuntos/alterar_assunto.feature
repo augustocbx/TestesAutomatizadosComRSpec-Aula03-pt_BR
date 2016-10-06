@@ -15,7 +15,9 @@ Funcionalidade: : Alterar assuntos
 
   Cenário: Eu sou um usuário com permissão no sistema e quero alterar um assunto com dados inválidos
     Dado já existam assuntos cadastrados
-    Quando Eu clico no botão "Alterar Assunto"
+    E Eu esteja na tela de listagem dos assuntos
+    Quando Eu clico no botão "Editar Assunto"
     E preencho o campo "assunto[nome]" com ""
+    E Eu clico no botão "Alterar"
     Então Eu quero ver mensagem "Assunto não alterado"
     E Eu quero ver mensagem "Nome é obrigatório"

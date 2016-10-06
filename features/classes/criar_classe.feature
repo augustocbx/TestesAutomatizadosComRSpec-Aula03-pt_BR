@@ -6,18 +6,23 @@ Feature: Criar Classe
 
   Background:
     Given Eu esteja na tela de listagem das classes
-
-  Scenario: Eu sou um usuário com permissão no sistema e quero inserir uma nova Classe válida
-    Given Tesdfadfa
     When Eu clico no botão "Nova classe"
-    And preencho o campo "classe[nome]" com "Teste"
+
+  Scenario Outline: Eu sou um usuário com permissão no sistema e quero inserir uma nova Classe válida
+    When preencho o campo "classe[nome]" com "<nome>"
     And Eu clico no botão "Cadastrar"
-    Then Eu quero ver o nome "Teste" na tela
-    And A mensagem "Assunto criado com sucesso"
+    Then Eu quero ver o nome "<nome>" na tela
+    And A mensagem "<mensagem>"
+  Examples:
+  |nome|mensagem|
+  |Nova|Classe criada com sucesso|
+  |Nova 2|Classe criada com sucesso|
+  |Nova 3|Classe criada com sucesso|
+  |Nova 4|Classe criada com sucesso|
+  ||Classe não criada|
     
 #  Scenario: Eu sou um usuário com permissão no sistema e quero inserir um novo assunto sem nome
-#    When Eu clico no botão "Novo assunto"
-#    And preencho o campo "assunto[nome]" com ""
+#    When preencho o campo "classe[nome]" com ""
 #    And Eu clico no botão "Cadastrar"
-#    Then Eu quero ver mensagem "Assunto não criado"
+#    Then Eu quero ver mensagem "Classe não criada"
 #    And Eu quero ver mensagem "Nome é obrigatório"

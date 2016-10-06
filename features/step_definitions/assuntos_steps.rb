@@ -7,11 +7,8 @@ When(/^Eu clico no botão "([^"]*)"$/) do |botao|
 end
 
 When(/^preencho o campo "([^"]*)" com "([^"]*)"$/) do |campo, valor|
-
-
   page.save_screenshot('/Users/augustocbx/Projects/TDD_03/tmp/assuntos.png')
   fill_in campo, with: valor
-  sleep 2
 end
 
 Then(/^Eu quero ver o nome "([^"]*)" na tela$/) do |texto|
