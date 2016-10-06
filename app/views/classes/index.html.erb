@@ -1,0 +1,32 @@
+<%= link_to 'Nova classe', new_class_path %><br>
+<font color="green"><%= @message %></font><br>
+<% if @classes.empty? %>
+    Não existem classes cadastrados
+<% else %>
+    <table>
+      <tr>
+        <td>
+          Nome
+        </td>
+        <td>
+          Editar
+        </td>
+        <td>
+          Remover
+        </td>
+      </tr>
+      <% @classes.each do |classe| %>
+          <tr class="classe_linha">
+            <td>
+              <%= h classe.nome %>
+            </td>
+            <td>
+              <%= link_to('Editar Classe', edit_class_path(classe)) %>
+            </td>
+            <td>
+              <%= link_to('Remover Classe', class_path(classe), method: :delete) %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+<% end %>
