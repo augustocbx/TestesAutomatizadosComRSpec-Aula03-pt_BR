@@ -11,5 +11,8 @@
 FactoryGirl.define do
   factory :assunto, class: Assunto do
     nome { Faker::Lorem.word }
+    trait :ferias do
+      nome 'Férias'
+    end
   end
 end

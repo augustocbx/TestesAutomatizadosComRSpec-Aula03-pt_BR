@@ -21,10 +21,10 @@ class Auto < ActiveRecord::Base
   before_update :validate_fields
 
   def validate_fields
-    if self.classe == 'Nova'
+    if self.classe.nome == 'Nova'
       self.errors.add(:classe, 'Classe não pode ser nova na alteração')
     end
-    if self.assunto == 'Férias'
+    if self.assunto.nome == 'Férias'
       self.errors.add(:assunto, 'Assunto não pode ser ferias na alteração')
     end
     return self.errors.count == 0

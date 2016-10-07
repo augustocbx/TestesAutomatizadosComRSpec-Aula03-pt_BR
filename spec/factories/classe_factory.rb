@@ -11,5 +11,8 @@
 FactoryGirl.define do
   factory :classe, class: Classe do
     nome { Faker::Lorem.word }
+    trait :nova do
+      nome 'Nova'
+    end
   end
 end
